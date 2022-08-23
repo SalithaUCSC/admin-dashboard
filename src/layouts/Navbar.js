@@ -1,8 +1,17 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import UserLogo from "../assets/img/avatar/avatar-1.png";
 import Search from "../components/Search";
+import {useDispatch} from "react-redux";
+import {dashboardActions} from "../features/DashboardSlice";
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const clear = (e) => {
+        e.preventDefault();
+        dispatch(dashboardActions.clear({}))
+        navigate("/login")
+    }
     return (
         <div>
             <div className="navbar-bg"></div>
@@ -11,7 +20,7 @@ const Navbar = () => {
                 <ul className="navbar-nav navbar-right">
                     <li className="dropdown dropdown-list-toggle">
                         <a href="src/layouts/Navbar#" data-toggle="dropdown" className="nav-link nav-link-lg message-toggle beep"><i
-                        className="far fa-envelope"></i></a>
+                            className="far fa-envelope"></i></a>
                         <div className="dropdown-menu dropdown-list dropdown-menu-right">
                             <div className="dropdown-header">Messages
                                 <div className="float-right">
@@ -143,10 +152,11 @@ const Navbar = () => {
                             </div>
                         </div>
                     </li>
-                    <li className="dropdown"><a href="src/layouts/Navbar#" data-toggle="dropdown"
-                                                className="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                        <img alt="image" src={UserLogo} className="rounded-circle mr-1"/>
-                        <div className="d-sm-none d-lg-inline-block">Hi, Salitha</div></a>
+                    <li className="dropdown">
+                        <a href="src/layouts/Navbar#" data-toggle="dropdown"
+                           className="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src={UserLogo} className="rounded-circle mr-1"/>
+                            <div className="d-sm-none d-lg-inline-block">Hi, Salitha</div></a>
                         <div className="dropdown-menu dropdown-menu-right">
                             <div className="dropdown-title">Logged in 5 min ago</div>
                             <Link to={"/profile"} className="dropdown-item has-icon">
@@ -159,9 +169,10 @@ const Navbar = () => {
                                 <i className="fas fa-cog"></i> Settings
                             </Link>
                             <div className="dropdown-divider"></div>
-                            <Link to={"/profile"} className="dropdown-item has-icon text-danger">
-                                <i className="fas fa-sign-out-alt"></i> Logout
-                            </Link>
+                            <button onClick={clear} className="dropdown-item btn btn-outline-danger btn-sm has-icon text-danger">
+                                {/*<i className="fas fa-sign-out-alt"></i> */}
+                                Logout
+                            </button>
                         </div>
                     </li>
                 </ul>
