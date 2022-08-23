@@ -7,15 +7,7 @@ const Search = () => {
                 <li><a href="src/layouts/Navbar#" data-toggle="search" className="nav-link nav-link-lg d-sm-none"><i
                     className="fas fa-search"></i></a></li>
             </ul>
-            <div className="search-element">
-                <input className="form-control" type="search" placeholder="Search" aria-label="Search"
-                       data-width="250"/>
-                <button className="btn" type="submit"><i className="fas fa-search"></i></button>
-                {/*<div className="search-backdrop"></div>*/}
-                {/*<div className="search-result">*/}
 
-                {/*</div>*/}
-            </div>
         </form>
     );
 }

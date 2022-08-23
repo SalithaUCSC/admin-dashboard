@@ -16,7 +16,7 @@ const Navbar = () => {
         <div>
             <div className="navbar-bg"></div>
             <nav className="navbar navbar-expand-lg main-navbar">
-                <Search/>
+                <a className="form-inline mr-auto"></a>
                 <ul className="navbar-nav navbar-right">
                     <li className="dropdown dropdown-list-toggle">
                         <a href="src/layouts/Navbar#" data-toggle="dropdown" className="nav-link nav-link-lg message-toggle beep"><i

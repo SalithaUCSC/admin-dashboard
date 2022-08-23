@@ -8,7 +8,7 @@ const Login = () => {
     const login = (e) => {
         e.preventDefault();
         dispatch(dashboardActions.login({}))
-        // navigate("/home")
+        navigate("/home")
     }
     // temp action
     const clear = (e) => {
