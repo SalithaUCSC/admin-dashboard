@@ -1,4 +1,4 @@
-import {Link, Navigate, useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {dashboardActions} from "../features/DashboardSlice";
 
